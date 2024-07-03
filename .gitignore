@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 
-game-harbor
+game-harbor-main
 
 
 # Editor directories and files
