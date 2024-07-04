@@ -9,6 +9,7 @@ import {
   NavLink,
   Outlet,
 } from "react-router-dom";
+import NavBar from "./components/NavBar.jsx"
 
 
 
@@ -18,7 +19,8 @@ function App() {
   return (
     <>
 
-     <div id='details'>     <NavLink to="Shop" >click</NavLink>
+     <div id='details' className='bg-black text-yellow-200 w-full min-h-svh'>
+      <NavBar/>
       <Outlet/>
      </div>
     </>
