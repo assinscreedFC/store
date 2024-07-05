@@ -3,11 +3,14 @@ import Cart from './Cart.jsx';
 
 const fetcher = (...args) => fetch(...args).then(res => res.json());
 function Shop(){
-    const { data, error, isLoading } = useSWR('https://api.escuelajs.co/api/v1/products/?categoryId=1', fetcher)
+    const { data, error, isLoading } = useSWR('https://fakestoreapi.com/products', fetcher)
     if (isLoading) return <div>Loading...</div>
 
     console.log(data);
-
+    let tab= [];
+    for (let i = 0; i < data.length; i++) {
+        tab.push(<Cart key={i} data={data[i]} />)
+    }
     return(
         <>
         {/* <div className="max-w-64 flex flex-col m-9 border-red-800 border-4">
@@ -15,11 +18,13 @@ function Shop(){
             <h1 className='text-sm'>{data.title}</h1>
             <p>{data.price} $</p>
         </div> */}
-        
-        <div className='w-3/4 flex flex-wrap justify-center items-center
+        <div className='flex justify-center w-full'>
+            <div className='w-3/4 gap-3 grid grid-cols-3 justify-items-center
         '>
-            <Cart/>
+            {tab}
         </div>
+        </div>
+        
 
 
 
