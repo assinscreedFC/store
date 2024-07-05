@@ -19,7 +19,7 @@ function App() {
   return (
     <>
 
-     <div id='details' className='bg-black text-yellow-200 w-full min-h-svh'>
+     <div id='details' className='bg-black text-zinc-900 w-full min-h-svh'>
       <NavBar/>
       <Outlet/>
      </div>
