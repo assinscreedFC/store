@@ -11,22 +11,26 @@ import {
 } from "react-router-dom";
 import NavBar from "./components/NavBar.jsx"
 import { Toaster } from 'sonner';
+import { createContext,useContext } from 'react';
+const tab_article=createContext([]);
 
 
 
 function App() {
-
+  const [tab,settab]=useState([]);
 
   return (
     <>
 
      <div id='details' className='bg-black text-zinc-900 w-full min-h-svh'>
+      <tab_article.Provider value={{tab,settab}}>
       <NavBar/>
       <Outlet/>
+      </tab_article.Provider>
       <Toaster />
      </div>
     </>
   )
 }
 
-export default App
+export {App,tab_article}

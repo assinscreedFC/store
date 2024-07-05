@@ -1,6 +1,19 @@
 import { toast } from "sonner"
+import { useContext } from "react"
+import {tab_article} from "../App.jsx"
 
 function Cart({keyy, data}){
+    const {tab,settab}=useContext(tab_article);
+
+    const btn= ()=>{
+        toast.success('ajouter heu... yes',{
+            duration:1500,
+            
+        },)
+        let copy =[...tab,data];
+        settab(copy);
+        console.log(tab);
+    }
 
 
     return(
@@ -14,10 +27,7 @@ function Cart({keyy, data}){
             </div>
             <div className="flex justify-between items-center ">
                 <p>prix : {data.price}$</p>
-                <button onClick={() => toast.success('ajouter heu... yes',{
-                    duration:1500,
-                    
-                },)} className="border-none  ring-2 ring-offset-2 ring-green-500 w-20 rounded-md hover:bg-green-500 hover:text-green-50" >Add</button>
+                <button onClick={btn} className="border-none  ring-2 ring-offset-2 ring-green-500 w-20 rounded-md hover:bg-green-500 hover:text-green-50" >Add</button>
             </div>
         </div>
     )
