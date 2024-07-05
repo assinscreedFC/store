@@ -2,8 +2,11 @@ import { NavLink } from "react-router-dom"
 import { CiShoppingCart } from "react-icons/ci";
 import { IconContext } from "react-icons";
 import Modal from "./Modal.jsx";
+import { useState } from "react";
 
 function NavBar(){
+
+    const [active ,setactive]=useState(false);
     return(
         <>
         <header className="w-full bg-zinc-200 text-zinc-900 flex  justify-between px-6 items-center" >
@@ -15,7 +18,7 @@ function NavBar(){
                 </ul>
             </nav>
             <div className="flex items-center gap-4 mx-4">
-            <div className="flex items-end flex-col cursor-pointer">
+            <div className="flex items-end flex-col cursor-pointer " onClick={()=>setactive(!active)}>
             <span className="relative flex  h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75 text-black"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
@@ -30,7 +33,7 @@ function NavBar(){
             </div>
         </header>
 
-        <Modal/>
+       {active && <Modal setyolo={setactive} yolo={active}/>}
         </>
     )
 }

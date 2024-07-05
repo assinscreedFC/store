@@ -7,7 +7,7 @@ function Cart({keyy, data}){
         <div className="flex flex-col bg-white w-full p-4 m-4 gap-3 justify-between  " key={keyy} >
             <div className="flex flex-col gap-2">
             <img src={data.image} alt="ya pas encore" className="m-4 w-20 bg-transparent" />
-            <h1 className="">{data.title}</h1>
+            <h1 className="font-bold">{data.title}</h1>
             <p className="text-sm text-black/80 ">{data.description}</p>
             
             
