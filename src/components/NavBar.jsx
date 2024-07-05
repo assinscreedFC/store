@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom"
 import { CiShoppingCart } from "react-icons/ci";
 import { IconContext } from "react-icons";
+import Modal from "./Modal.jsx";
 
 function NavBar(){
     return(
@@ -28,6 +29,8 @@ function NavBar(){
             <button className="w-20 bg-zinc-900 text-zinc-100 p-3 rounded-md">Login</button>
             </div>
         </header>
+
+        <Modal/>
         </>
     )
 }
