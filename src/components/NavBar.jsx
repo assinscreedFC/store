@@ -14,10 +14,10 @@ function NavBar(){
                 </ul>
             </nav>
             <div className="flex items-center gap-4 mx-4">
-            <div className="flex items-end flex-col">
-            <span class="relative flex  h-3 w-3">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75 text-black"></span>
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+            <div className="flex items-end flex-col cursor-pointer">
+            <span className="relative flex  h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75 text-black"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
                 </span>
             <IconContext.Provider value={{ color: "blue" ,size:" 2em" }}>
             <CiShoppingCart  />

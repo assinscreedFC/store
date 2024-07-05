@@ -9,7 +9,7 @@ function Shop(){
     console.log(data);
     let tab= [];
     for (let i = 0; i < data.length; i++) {
-        tab.push(<Cart key={i} data={data[i]} />)
+        tab.push(<Cart keyy={new Date().getTime()} data={data[i]} />)
     }
     return(
         <>

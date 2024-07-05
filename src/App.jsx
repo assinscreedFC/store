@@ -10,6 +10,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import NavBar from "./components/NavBar.jsx"
+import { Toaster } from 'sonner';
 
 
 
@@ -22,6 +23,7 @@ function App() {
      <div id='details' className='bg-black text-zinc-900 w-full min-h-svh'>
       <NavBar/>
       <Outlet/>
+      <Toaster />
      </div>
     </>
   )
