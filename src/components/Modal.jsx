@@ -10,39 +10,44 @@ function Modal({ yolo, setyolo }) {
   const [rounded, setrounded] = useState(0);
   const [id,setid]=useState([]);
 
-  
-  // const handeldata = (dta, count) => {
-  //   let copyCalc = [...calc];
-  //   let copyTab = [...tab];
+  const handeldata = (dta, count) => {
+    let copyCalc = [...calc];
+    let copyTab = [...tab];
     
-  //   if (count === 0) {
-  //     // Supprimer l'élément de calc
-  //     copyCalc = copyCalc.filter(item => item.id !== dta.id);
-
-  //     // Supprimer l'élément de tab
-  //     copyTab = copyTab.filter(item => item.id !== dta.id);
-
-  //     setcalc(copyCalc);
-  //     settab(copyTab);
-  //   } else {
-  //     const calcIndex = copyCalc.findIndex(item => Object.values(item)[0] === dta.id);
-
-      
-  //       copyCalc.push({ id: dta.id, count });
-      
-
-  //     setcalc(copyCalc);
-  //   }
-
-  //   console.log("copyCalc:", copyCalc);
-  // };
-
+    if (count === 0) {
+      // Remove the item from copyCalc and copyTab
+      copyCalc = copyCalc.filter(item => item.id !== dta.id);
+      copyTab = copyTab.filter(item => item.id !== dta.id);
+  
+      // Update state with filtered arrays
+      setcalc([...copyCalc]);
+      settab([...copyTab]);
+    } else {
+      // Check if dta.id already exists in copyCalc
+      const calcIndex = copyCalc.findIndex(item => item.id === dta.id);
+  
+      if (calcIndex !== -1) {
+        // Update the count if the item exists
+        copyCalc[calcIndex].count = count;
+      } else {
+        // Add a new item if it doesn't exist
+        copyCalc.push({ id: dta.id, count });
+      }
+  
+      // Update state with updated copyCalc
+      setcalc([...copyCalc]);
+      setid([...copyCalc]);
+    }
+    
+    console.log("copyCalc:", copyCalc,id);
+  };
+  
   useEffect(() => {
     const mak = tab.map((item) => (
       <CartModal onDataSend={handeldata} key={uuidv4()} data={item} />
     ));
 
-    tab.forEach(item => settcount(item, item.price));
+    tab.forEach(item => handeldata(item, item.price));
 
     setmod([...mak]);
     console.log(calc);
