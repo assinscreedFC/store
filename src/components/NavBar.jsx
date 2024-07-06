@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 import { CiShoppingCart } from "react-icons/ci";
 import { IconContext } from "react-icons";
-import Modal from "./Modal.jsx";
+import Modal  from "./Modal.jsx";
 import { useState } from "react";
 
 function NavBar(){

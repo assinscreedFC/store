@@ -11,59 +11,38 @@ function Modal({ yolo, setyolo }) {
   const [id,setid]=useState([]);
 
   
-  const handeldata = (dta, count) => {
-    let copyCalc = [...calc];
-    let copyTab = [...tab];
+  // const handeldata = (dta, count) => {
+  //   let copyCalc = [...calc];
+  //   let copyTab = [...tab];
     
-    if (count === 0) {
-      // Supprimer l'élément de calc
-      copyCalc.forEach((item, index) => {
-        console.log("1")
-        const values = Object.values(item);
-        console.log(values);
-        if (values[0] === dta.id) {
-          copyCalc.splice(index, 1);
-        }
-      });
+  //   if (count === 0) {
+  //     // Supprimer l'élément de calc
+  //     copyCalc = copyCalc.filter(item => item.id !== dta.id);
 
-      // Supprimer l'élément de tab
-      copyTab.forEach((item, index) => {
-        console.log("3")
-        if (item.id === dta.id) {
-          copyTab.splice(index, 1);
-        }
-      });
+  //     // Supprimer l'élément de tab
+  //     copyTab = copyTab.filter(item => item.id !== dta.id);
 
-      setcalc(copyCalc);
-      settab(copyTab);
-    } else {
-      let found = false;
-      // Mettre à jour l'élément dans calc
-      copyCalc.forEach((item, index) => {
-        console.log("2")
-        const values = Object.values(item);
-        console.log(values);
-        if (values[0] === dta.id) {
-          copyCalc[index].count = count;
-          found = true;
-        }
-      });
+  //     setcalc(copyCalc);
+  //     settab(copyTab);
+  //   } else {
+  //     const calcIndex = copyCalc.findIndex(item => Object.values(item)[0] === dta.id);
 
-      if (!found) {
-        copyCalc.push({ id: dta.id, count });
-      }
+      
+  //       copyCalc.push({ id: dta.id, count });
+      
 
-      setcalc(copyCalc);
-    }
+  //     setcalc(copyCalc);
+  //   }
 
-    console.log("copyCalc:", copyCalc);
-  };
+  //   console.log("copyCalc:", copyCalc);
+  // };
+
   useEffect(() => {
     const mak = tab.map((item) => (
       <CartModal onDataSend={handeldata} key={uuidv4()} data={item} />
     ));
 
-    tab.forEach(item => handeldata(item, item.price));
+    tab.forEach(item => settcount(item, item.price));
 
     setmod([...mak]);
     console.log(calc);
