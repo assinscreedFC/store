@@ -13,6 +13,7 @@ import NavBar from "./components/NavBar.jsx"
 import { Toaster } from 'sonner';
 import { createContext,useContext } from 'react';
 const tab_article=createContext([]);
+const tab_article_count=createContext([]);
 
 
 
@@ -22,7 +23,7 @@ function App() {
   return (
     <>
 
-     <div id='details' className='bg-black text-zinc-900 w-full min-h-svh'>
+     <div id='details' className='bg-custom-gradient text-zinc-900 w-full min-h-svh'>
       <tab_article.Provider value={{tab,settab}}>
       <NavBar/>
       <Outlet/>
